@@ -28,9 +28,7 @@ Crosslinking Immunoprecipitation followed by Sequencing
 ## IV. STAR
 **Spliced Transcripts Alignment to a Reference**
 
-It is basically an aligner that maps reads to genome. STAR tells where this read most likely come from, including **chromosome**, **genomic coordinate**, **strand**, and **alignment quality** (how confident it is). To do its job, STAR needs STAR index and FASTQ files. STAR index is a shortcut table that lets STAR quickly find matching positions.
-
-It outputs an alignment file in SAM or BAM format, which will be discussed later.
+It is basically an aligner that maps reads to genome. STAR tells where this read most likely come from, including **chromosome**, **genomic coordinate**, **strand**, and **alignment quality** (how confident it is). To do its job, STAR needs STAR index and FASTQ files. STAR index is a shortcut table that lets STAR quickly find matching positions. STAR outputs an alignment file in SAM or BAM format.
 
 
 ## V. Samtools
