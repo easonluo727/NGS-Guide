@@ -32,7 +32,7 @@ A simplified FASTA file might look like:
 * Length - - the length of the sequence
 * Offset - - byte position where that sequence starts
 
-## Gene annotation & gtf
+## Gene Annotation & GTF
 GTF stands for **Gene Transfer Format**. It tells you information about the reference genome. It can tell you where a gene starts, where each exon is, which transcript an exon belongs to, and which strand the gene is on. 
 
 A GTF file might look like:
