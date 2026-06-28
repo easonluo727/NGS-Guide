@@ -1,8 +1,13 @@
 # NGS Overview
 
+## General Requriements:
+* Python/R/Bash/Javascript fundamentals
+* Molecular biology fundamentals, especially central dogma
+
+
 ## Characteristics:
-* parallel sequences, adaptors, stick to flowcell, PCR, forming clusters
-* multiple sequences at a time
+* Parallel sequences, adaptors, stick to flowcell, PCR, forming clusters
+* Multiple sequences at a time
 
 ## Process:
 * Reference Genome: with annotations (untranslated region, intro/exon)
