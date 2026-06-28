@@ -61,15 +61,15 @@ test whether each peak different between the two groups
 
 ### Input count matrix:
 
-| peak_id | Ctrl2-HS | Ctrl3-HS | PD2-HS | PD3-HS |
+| peak_id | Sample A1 | Sample A2 | Sample B1 | Sample B2 |
 | ------- | -------: | -------: | -----: | -----: |
 | peak_1  |       96 |       80 |     10 |     12 |
 | peak_2  |        4 |        7 |     50 |     55 |
 | peak_3  |        0 |        2 |      1 |      3 |
 
-B = PD2-HS, PD3-HS
+B = B1, B2
 
-A = Ctrl2-HS, Ctrl3-HS
+A = A1, A2
 
 ### a. Distribution analysis:
 
