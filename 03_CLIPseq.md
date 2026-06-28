@@ -24,7 +24,16 @@ Crosslinking Immunoprecipitation followed by Sequencing
 
 * use gtf file to identify types of crosslink regions (exon, intron, etc.)
 
-## IV. Samtools
+
+## IV. STAR
+**Spliced Transcripts Alignment to a Reference**
+
+It is basically an aligner that maps reads to genome. STAR tells where this read most likely come from, including **chromosome**, **genomic coordinate**, **strand**, and **alignment quality** (how confident it is). To do its job, STAR needs STAR index and FASTQ files. STAR index is a shortcut table that lets STAR quickly find matching positions.
+
+It outputs an alignment file in SAM or BAM format, which will be discussed later.
+
+
+## V. Samtools
 
 ### a. samtools view
 
@@ -48,7 +57,7 @@ print out alignments in SAM text format
 
 * chromosome name, length, mapped reads, unmapped reads
 
-## V. DESeq2
+## VI. DESeq2
 
 test whether each peak different between the two groups
 
@@ -93,18 +102,7 @@ dds <- DESeq(dds)
 ### c. Extract the result
 
 1. `results(dds, contrast = c("condition", B, A))`
-
 2. `results(dds, name = "condition_B_vs_A")`
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -113,7 +111,6 @@ dds <- DESeq(dds)
 Shrinkage stabilizes noisy log2 fold-change estimates, especially for low-count features.
 
 1. Normal: `lfcShrink(type = "normal")`
-
 2. apeglm: `lfcShrink(type = "apeglm")`
 
 ### e. Visualization
