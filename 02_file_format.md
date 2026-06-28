@@ -40,6 +40,8 @@ A GTF file might look like:
 chr1    source    exon    1000    1200    .    +    .    gene_id "GENE1"; transcript_id "TX1";
 ```
 
+## BED
+
 ## Reads & FASTQ
 Reads are raw input data from the sequencing machine, typically stored in FASTQ format. To effectively analyze the reads, sequencing adapters and low-quality read parts must be removed, or trimmed. Adaptors are helpers to sequencing, but they are not biological sequence.
 
@@ -65,6 +67,7 @@ read_003    0     chr1    50000    255    25M100N25M *    0    0    AGCTTAGCTA..
 where header lines start with `@`.
 If you are interested in what each column means, you may look into it more deeply.
 
+`.bam.bai` is the index file for a BAM file. Similar to `.fa` and `.fa.fai`, `.bam.bai` is the helper index for `.bam`. It helps software quickly access alignments from a specific genomic region.
 
 ## Quick Summary
 * FASTA is a file format, reference genome is typically in FASTA
