@@ -1,4 +1,4 @@
-# Overview of NGS
+# NGS Overview
 
 ## Characteristics:
 * parallel sequences, adaptors, stick to flowcell, PCR, forming clusters
