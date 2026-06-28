@@ -1,4 +1,4 @@
-# Files Format
+# General Files Format
 ## Reference Genome & FASTA
 A reference genome is like a book that records the complete genetic sequence of an organism with nucleotides A, T, C, and G.
 
@@ -20,7 +20,7 @@ Here, each chromosome is stored as one **sequence** entry.
 
 A `fa.fai` file is like the catalog. Each chromosome is a chapter, and the `.fa.fai` file helps software quickly jump to where each chromosome sequence starts inside the FASTA file.
 
-A simplified FASTA file might look like:
+A simplified `.fa.fai` file might look like:
 | Sequence | Length | Offset |
 |---|---:|---:|
 | chr1 | 248956422 | 6 |
@@ -46,17 +46,9 @@ Reads are raw input data from the sequencing machine, typically stored in FASTQ 
 Files with `fq.gz` are raw reads. Similarly, `fq` stands for FASTQ, and `gz` stands for gzip, which means compressed.
 
 
-## STAR
-**Spliced Transcripts Alignment to a Reference**
-
-It is basically an aligner that maps reads to genome. STAR tells where this read most likely come from, including **chromosome**, **genomic coordinate**, **strand**, and **alignment quality** (how confident it is). To do its job, STAR needs STAR index and FASTQ files. STAR index is a shortcut table that lets STAR quickly find matching positions.
-
-It outputs an alignment file in SAM or BAM format, which will be discussed later.
-
-
 ## SAM & BAM
 **Sequence Alignment/Map** & **Binary Alignment/Map File**
-SAM is human-readable, and BAM is the compressed version for SAM for computer processing, as computer uses a binary system. They contain the same information and play the same role in sequencing. As mentioned before, SAM/BAM is the output from STAR alignment, containing information about reads, chromosome the read belongs to, genomic coordinates, and alignment quality.
+SAM is human-readable, and BAM is the compressed version for SAM for computer processing, as computer uses a binary system. They contain the same information and play the same role in sequencing. SAM/BAM can be generated from STAR, an aligner that maps reads to genome. SAM and BAM files contain information about reads, chromosome the read belongs to, genomic coordinates, and alignment quality.
 
 A SAM file might look like:
 ```text
