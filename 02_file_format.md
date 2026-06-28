@@ -18,7 +18,7 @@ ACGT...
 
 Here, each chromosome is stored as one **sequence** entry.
 
-A `fa.fai` file is like the catalog. Each chromosome is a chapter, and the `fa.fai` file can help you find the page (location on the reference genome) for each chapter.
+A `fa.fai` file is like the catalog. Each chromosome is a chapter, and the `.fa.fai` file helps software quickly jump to where each chromosome sequence starts inside the FASTA file.
 
 It might look like:
 | Sequence | Length | Offset |
