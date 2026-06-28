@@ -7,14 +7,14 @@ A reference genome is like a book that records the complete genetic sequence of 
 * `.fa.fai` is the helper index file for the FASTA file.
 
 A reference genome in FASTA format might look like:
+```text
 >chr1
 ACGT...
-
 >chr2
 ACGT...
-
 >chrX
 ACGT...
+```
 
 Here, each chromosome is stored as one **sequence** entry.
 
