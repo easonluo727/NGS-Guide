@@ -1,6 +1,6 @@
 # Files Format
 ## Reference Genome
-A reference genome is like a book that records the complete genetic sequence of an organism with nucleotides ATCG.
+A reference genome is like a book that records the complete genetic sequence of an organism with nucleotides A, T, C, and G.
 
 * `.fa.gz` is a compressed reference genome file, where `fa` stands for FASTA format and `gz` stands for gzip compression.
 * `.fa` is an uncompressed reference genome file, decompressed from the `.fa.gz` file.
@@ -9,10 +9,13 @@ A reference genome is like a book that records the complete genetic sequence of 
 A reference genome in FASTA format might look like:
 >chr1
 ACGT...
+
 >chr2
 ACGT...
+
 >chrX
 ACGT...
+
 Here, each chromosome is stored as one **sequence** entry.
 
 A `fa.fai` file is like the catalog. Each chromosome is a chapter, and the `fa.fai` file can help you find the page (location on the reference genome) for each chapter.
