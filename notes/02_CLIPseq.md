@@ -2,7 +2,7 @@
 
 Crosslinking Immunoprecipitation followed by Sequencing
 
-## Workflow
+## I. Workflow
 
 1. protein binds to RNA -> protein-RNA complex
 
@@ -12,21 +12,21 @@ Crosslinking Immunoprecipitation followed by Sequencing
 
 4. add adaptors, convert RNA to cDNA, PCR amplify, sequence the library
 
-## Environment Manager
+## II. Environment Manager
 
 * micromamba - environment/package manager - install software
 
 * conda - environment/package manager - install software
 
-## iCount
+## III. iCount
 
 * use BAM to identify crosslink sites
 
 * use gtf file to identify types of crosslink regions (exon, intron, etc.)
 
-## Samtools
+## IV. Samtools
 
-### samtools view
+### a. samtools view
 
 print out alignments in SAM text format
 
@@ -38,17 +38,17 @@ print out alignments in SAM text format
 
 * samtools view -F 4     - - keep only mapped reads
 
-### samtools index
+### b. samtools index
 
 * create an index file for a BAM (a bam.bai)
 
-### samtools idxstats
+### c. samtools idxstats
 
 * summarize how many reads map to each chromosome
 
 * chromosome name, length, mapped reads, unmapped reads
 
-## DESeq2
+## V. DESeq2
 
 test whether each peak different between the two groups
 
@@ -64,13 +64,13 @@ B = PD2-HS, PD3-HS
 
 A = Ctrl2-HS, Ctrl3-HS
 
-### Distribution analysis:
+### a. Distribution analysis:
 
 It uses all sample read counts in each group to learn the overall difference between the two groups for each peak.
 
 **log2 FC = log2(reads in B / reads in A)**
 
-### create a DESeqDataSet container
+### b. create a DESeqDataSet container
 
 Example:
 
@@ -90,13 +90,25 @@ Example:
 dds <- DESeq(dds)
 ```
 
-### Extract the result
+### c. Extract the result
 
 1. `results(dds, contrast = c("condition", B, A))`
 
 2. `results(dds, name = "condition_B_vs_A")`
 
-### Shrinkage
+
+
+
+
+
+
+
+
+
+
+
+
+### d. Shrinkage
 
 Shrinkage stabilizes noisy log2 fold-change estimates, especially for low-count features.
 
@@ -104,4 +116,4 @@ Shrinkage stabilizes noisy log2 fold-change estimates, especially for low-count 
 
 2. apeglm: `lfcShrink(type = "apeglm")`
 
-### Visualization
+### e. Visualization
