@@ -33,21 +33,43 @@ It might look like:
 * Offset - - byte position where that sequence starts
 
 
-## Star
-aligner - map reads to genome
+## Reads
+Reads are raw input data from the sequencing machine, typically stored in FASTQ format. To effectively analyze the reads, sequencing adapters and low-quality read parts must be removed, or trimmed. Adaptors are helpers to sequencing, but they are not biological sequence.
 
-lookup structure for fast substring matching
+Files with `fq.gz` are raw reads. Similarly, `fq` stands for FASTQ, and `gz` stands for gzip, which means compressed.
 
 
-FASTQ
-raw input data
+## STAR
+**Spliced Transcripts Alignment to a Reference**
 
-FASTQ_trimming
-removes sequencing adapters and low-quality read parts
+It is basically an aligner that maps reads to genome. STAR tells where this read mostly likely come from, including chromosome, genomic coordinate, strand, and alignment quality (how confident it is). To do its job, STAR needs STAR index and FASTQ files. STAR index is a shortcut table that lets STAR quickly find matcing positions.
 
-BAM (Binary Alignment/Map File)
-the output from STAR alignment
-reads, chromosome the read belongs to, genomic coordinates, read quality
+It outputs an alignment file in SAM or BAM format, which will be discussed later.
+
+
+## SAM & BAM
+**Sequence Alignment/Map** & **Binary Alignment/Map File**
+SAM is designed for human reads, and BAM is designed for computer reads, as computer uses a binary system. They contain the same information and play the same role in RNA-sequencing. As mentioned before, SAM/BAM is the output from STAR alignment, containing information about reads, chromosome the read belongs to, genomic coordinates, and alignment quality.
+
+A SAM file might look like:
+```text
+@HD     VN:1.6     SO:coordinate
+@SQ     SN:chr1    LN:248956422
+@SQ     SN:chr2    LN:242193529
+@PG     ID:STAR    PN:STAR    VN:2.7.10a
+
+read_001    0     chr1    10025    255    50M        *    0    0    ACGTACGTACGT...    FFFFFFFFFFFF...
+read_002    16    chr2    30510    255    48M2S      *    0    0    TTGCAAGTCCAA...    FFFFFFFFAAAA...
+read_003    0     chr1    50000    255    25M100N25M *    0    0    AGCTTAGCTA...       FFFFFFFFFF...
+```
+
+where header lines start with `@`.
+
+
+## Quick Summary
+* FASTA is a file format, reference genome is typically in FASTA
+* FASTQ is also a file format, raw sequencing data (sequenced reads) is typically in FASTQ
+* STAR is a tool/program, not a file
 
 
 segmentation.gtf
