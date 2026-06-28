@@ -78,14 +78,17 @@ dds <- DESeq(dds)
 ```
 
 
-### extract the result
-		1. `results(dds, contrast = c("condition", B, A))`
-		2. `results(dds, name = "condition_B_vs_A")`
+### Extract the result
 
+1. `results(dds, contrast = c("condition", B, A))`
+2. `results(dds, name = "condition_B_vs_A")`
 
-### shrinkage - - reduce the weight of unreliable data
-		1. normal        `lfcShrink(type = "normal")`
-		2. apeglm        `lfcShrink(type = "apeglm")`
+### Shrinkage
+
+Shrinkage stabilizes noisy log2 fold-change estimates, especially for low-count features.
+
+1. Normal: `lfcShrink(type = "normal")`
+2. apeglm: `lfcShrink(type = "apeglm")`
 
 
 ### visualization
