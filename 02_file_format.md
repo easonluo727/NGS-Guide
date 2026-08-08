@@ -70,13 +70,13 @@ A SAM file might look like:
 | SIMREAD002 | 0 | chr7 | 63,900 | 63,906 | 42 | 3M1I4M | * | 0 | 0 | AACGTGCA | IIIIIIII | `NM:i:1 AS:i:11` |
 
 Some important columns and their meanings:
-`QNAME`     read name / label
-`FLAG`      whether the reads are paired
-`RNAME`     chromosome the reads align with
-`POS`       start position
-`MAPQ`      mapping quality, how confident the machine is about the alignment
-`CIGAR`     how the reads aligns to the reference, M means alignment match or mismatch
-`SEQ`       the read's nucleotide sequence
+* `QNAME`     read name / label
+* `FLAG`      whether the reads are paired
+* `RNAME`     chromosome the reads align with
+* `POS`       start position
+* `MAPQ`      mapping quality, how confident the machine is about the alignment
+* `CIGAR`     how the reads aligns to the reference, M means alignment match or mismatch
+* `SEQ`       the read's nucleotide sequence
 
 `.bam.bai` is the index file for a BAM file. Similar to `.fa` and `.fa.fai`, `.bam.bai` is the helper index for `.bam`. It helps software quickly access alignments from a specific genomic region.
 
