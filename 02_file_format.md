@@ -59,6 +59,7 @@ Files with `fq.gz` are raw reads. Similarly, `fq` stands for FASTQ, and `gz` sta
 
 ## SAM & BAM
 **Sequence Alignment/Map** & **Binary Alignment/Map File**
+
 SAM is human-readable, and BAM is the compressed version for SAM for computer processing, as computer uses a binary system. They contain the same information and play the same role in sequencing. SAM/BAM can be generated from STAR, an aligner that maps reads to genome. SAM and BAM files contain information about reads, chromosome the read belongs to, genomic coordinates, and alignment quality.
 
 A SAM file might look like:
