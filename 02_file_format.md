@@ -62,17 +62,23 @@ Files with `fq.gz` are raw reads. Similarly, `fq` stands for FASTQ, and `gz` sta
 SAM is human-readable, and BAM is the compressed version for SAM for computer processing, as computer uses a binary system. They contain the same information and play the same role in sequencing. SAM/BAM can be generated from STAR, an aligner that maps reads to genome. SAM and BAM files contain information about reads, chromosome the read belongs to, genomic coordinates, and alignment quality.
 
 A SAM file might look like:
-```text
+| QNAME | FLAG | RNAME | POS (Start) | End Position* | MAPQ | CIGAR | RNEXT | PNEXT | TLEN | SEQ | QUAL | Optional Tags |
+|---|---:|---|---:|---:|---:|---|---|---:|---:|---|---|---|
+| SIMREAD001/1 | 99 | chr2 | 48,271 | 48,278 | 60 | 8M | = | 48,321 | 58 | ACTGCCAA | IIIIIIII | `NM:i:0 AS:i:16` |
+| SIMREAD001/2 | 147 | chr2 | 48,321 | 48,328 | 60 | 8M | = | 48,271 | -58 | TTGCAACC | IIIIIIII | `NM:i:0 AS:i:16` |
+| SIMREAD002 | 0 | chr7 | 63,900 | 63,906 | 42 | 3M1I4M | * | 0 | 0 | AACGTGCA | IIIIIIII | `NM:i:1 AS:i:11` |
 
-read_001    0     chr1    10025    255    50M        *    0    0    ACGTACGTACGT...    FFFFFFFFFFFF...
-read_002    16    chr2    30510    255    48M2S      *    0    0    TTGCAAGTCCAA...    FFFFFFFFAAAA...
-read_003    0     chr1    50000    255    25M100N25M *    0    0    AGCTTAGCTA...       FFFFFFFFFF...
-```
-
-where header lines start with `@`.
-If you are interested in what each column means, you may look into it more deeply.
+Some important columns and their meanings:
+`QNAME`     read name / label
+`FLAG`      whether the reads are paired
+`RNAME`     chromosome the reads align with
+`POS`       start position
+`MAPQ`      mapping quality, how confident the machine is about the alignment
+`CIGAR`     how the reads aligns to the reference, M means alignment match or mismatch
+`SEQ`       the read's nucleotide sequence
 
 `.bam.bai` is the index file for a BAM file. Similar to `.fa` and `.fa.fai`, `.bam.bai` is the helper index for `.bam`. It helps software quickly access alignments from a specific genomic region.
+
 
 ## Quick Summary
 * FASTA is a file format, reference genome is typically in FASTA
