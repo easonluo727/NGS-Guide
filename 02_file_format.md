@@ -41,6 +41,15 @@ chr1    source    exon    1000    1200    .    +    .    gene_id "GENE1"; transc
 ```
 
 ## BED
+A BED file records genomic locations. It does not contain the sequencing reads themselves. Tools such as `bedtools` use it to compare genomic regions.
+| Chromosome | Start Position | End Position |
+|---|---:|---:|
+| chr1 | 48,271 | 48,278 |
+| chr2 | 63,900 | 63,904 |
+| chr3 | 17,544 | 17,536 |
+| chrX | 82,116 | 82,119 |
+| chrM | 35,687 | 35,692 |
+
 
 ## Reads & FASTQ
 Reads are raw input data from the sequencing machine, typically stored in FASTQ format. To effectively analyze the reads, sequencing adapters and low-quality read parts must be removed, or trimmed. Adaptors are helpers to sequencing, but they are not biological sequence.
@@ -54,10 +63,6 @@ SAM is human-readable, and BAM is the compressed version for SAM for computer pr
 
 A SAM file might look like:
 ```text
-@HD     VN:1.6     SO:coordinate
-@SQ     SN:chr1    LN:248956422
-@SQ     SN:chr2    LN:242193529
-@PG     ID:STAR    PN:STAR    VN:2.7.10a
 
 read_001    0     chr1    10025    255    50M        *    0    0    ACGTACGTACGT...    FFFFFFFFFFFF...
 read_002    16    chr2    30510    255    48M2S      *    0    0    TTGCAAGTCCAA...    FFFFFFFFAAAA...
